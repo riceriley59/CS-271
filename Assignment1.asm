@@ -39,7 +39,7 @@ ExitProcess proto, dwExitCode:dword
 	;different messages for saying goodbye, displaying extra credit, and displaying an error message
 	bye1 BYTE "Thanks for using my program! Have a nice day!",0
 	EC2 BYTE "**EC: Program Verifies second number less than first",0
-	numError BYTE "The Second Number must be less than the first!",0
+	numError BYTE "The Second Number must be less than the first! Try Again:",0
 	
 
 .code				;CS register
@@ -88,7 +88,7 @@ main proc ;start main process or the entry point for the program
 			mov EDX, OFFSET numError
 			call WriteString
 			call Crlf
-			jmp Goodbye ;jump to goodbye outputting and end message and quitting program
+			jmp GetNumbers ;jump to goodbye outputting and end message and quitting program
  		out_of_error: ;this continues program if condition is met
 
 	CalculateValues:			;this handles calculating all the values that we need
