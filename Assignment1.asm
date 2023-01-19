@@ -88,7 +88,8 @@ main proc ;start main process or the entry point for the program
 			mov EDX, OFFSET numError
 			call WriteString
 			call Crlf
-			jmp GetNumbers ;jump to goodbye outputting and end message and quitting program
+			call Crlf
+			jmp GetNumbers ;jump to Getnumbers letting the user reenter the numbers
  		out_of_error: ;this continues program if condition is met
 
 	CalculateValues:			;this handles calculating all the values that we need
