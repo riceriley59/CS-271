@@ -4,7 +4,7 @@ TITLE Program Assignment1(Assignment1.asm)
 ; Course: CS271
 ; Description: This displays my name and program title and then gets two numbers from
 ; users and then caclulates the sum, difference, product, integer quotient and remainder
-; of the numbers then say goodbye
+; of the numbers then say goodbye. The first number must be bigger than the second number.
 
 INCLUDE Irvine32.inc
 
