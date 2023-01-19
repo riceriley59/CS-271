@@ -81,7 +81,7 @@ main proc ;start main process or the entry point for the program
 		;then display error message and exit program otherwise continue
 		mov EAX, firstnumber
 		cmp EAX, secondnumber ;compare first and second number
-		jle error ;if second number is greater than the first number then jump to error
+		jl error ;if second number is greater than the first number then jump to error
 		jmp out_of_error ;otherwise jump to out_of_error continuing program
 		error: ;handles error
 			;display error message
