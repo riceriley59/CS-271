@@ -113,7 +113,7 @@ main proc ;start main process or the entry point for the program
 		mov EAX, firstnumber
 		mov EBX, secondnumber
 		cdq ;call cdq before div call, it's required
-		div EBX ;div EAX and EBX, EAX is an implied operator
+		div EBX ;div EAX and EBX, EAX is an implied operand
 		mov quotient, EAX ;store the quotient that is stored into the EAX into quotient
 		mov remainder, EDX ;store the remainder that is stored in the EDX into remainder
 
