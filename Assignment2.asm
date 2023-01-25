@@ -76,15 +76,16 @@ main proc
         mov fibNumbers, EAX
 
         mov EAX, fibNumbers
-        cmp EAX, 47
+        cmp EAX, 46
         JG error
         jmp out_of_error
         
         error:
-            call Clrf
+            call Crlf
             mov EDX, OFFSET out_of_range
             call WriteString
-            call Clrf
+            call Crlf
+            call Crlf
 
             jmp getUserData
         out_of_error:
@@ -92,11 +93,12 @@ main proc
             JL error
 
     displayFibs:                ;This will handle displaying the fib numbers
+        call Crlf
         mov ECX, fibNumbers
 
         mov EAX, 1
         mov EBX, 1
-        mov EDI, 1
+        mov EDI, 0
 
         mov EDX, OFFSET spacing
 
@@ -106,12 +108,12 @@ main proc
 
             inc EDI
 
-            cmp EDI, 4
+            cmp EDI, 5
             je newline
             jmp continue
             newline:
                 call Crlf
-                mov EDI, 1
+                mov EDI, 0
             continue:
 
             mov temp, EBX
@@ -121,6 +123,8 @@ main proc
             loop fibloop
 
     farewell:                   ;This says goodbye to the user before ending the program
+        call Crlf
+        call Crlf
         mov EDX, OFFSET certification
         call WriteString
         call Crlf
@@ -131,7 +135,7 @@ main proc
         mov EDX, OFFSET uName
         call WriteString
 
-    ;end program and return 0 to operating system
+     ;end program and return 0 to operating system
 	invoke ExitProcess, 0
 main endp  ;end main process
 end main 	;quit main
