@@ -1,4 +1,4 @@
-TITLE Assignment2
+TITLE Program Assignment2   (Assignment2.asm)
 
 ; Author(s) : Riley Rice	Date : 1 - 17 - 2023
 ; Course: CS271
