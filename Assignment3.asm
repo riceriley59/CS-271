@@ -99,7 +99,7 @@ main proc
           call Crlf
 
      convertToKM:             ;This handles converting the miles input to kilometers
-          ;initialize the FPU
+          ;initialize the FPU stack
           FINIT
 
           ;push in miles and the miles conversion into the stack so they are the top two
