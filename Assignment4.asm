@@ -30,10 +30,11 @@ MIN=1
      userNumber DWORD ?
 
      ;showComposites
-     testValue DWORD 4
+     testValue DWORD 1
      space BYTE " ",0
      primes DWORD 2, 3, 5, 7, 0
 
+     ;numPadding
      threeDigit BYTE " ", 0
      twoDigit BYTE "  ", 0
      oneDigit BYTE "   ", 0
@@ -128,6 +129,9 @@ validate endp
 isComposite proc
      pushad
 
+     cmp testValue, 3
+     jle returnFalse
+
      cmp testValue, 5
      je returnFalse
 
@@ -188,7 +192,6 @@ showComposites proc
           je print
           
           inc ECX
-
           jmp continue
 
           print:
