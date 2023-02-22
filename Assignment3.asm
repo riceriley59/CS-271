@@ -41,7 +41,7 @@ ExitProcess proto, dwExitCode:dword
 
      five DWORD 5
      nine DWORD 9
-     thirtytwo DWORD 32
+     thirtytwo DWORD 32kmf 
      
 
      ;displayConvertedData
