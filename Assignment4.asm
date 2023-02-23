@@ -41,7 +41,10 @@ MIN=1
 
      ;farewell
      goodbyeS BYTE "Results certified by Riley Rice. Goodbye.",0
-     
+
+     ;EC prompts
+     EC_align BYTE "**EC: Aligned columns.",0
+     EC_prime_divisors BYTE "**EC: Checked against only prime divisors to find composites.",0
 
 .code               ;CS register
 
@@ -56,8 +59,21 @@ introductionProc proc
      pushad ;save registers
 
      ;print out intro
-     mov EDX, offset intro
+     mov EDX, OFFSET intro
      call WriteString
+     call Crlf
+     call Crlf
+
+     ;print out align columns extra credit prompt
+     mov EDX, OFFSET EC_align
+     call WriteString
+     call Crlf
+
+     ;print out prime divisors extra credit prompt
+     mov EDX, OFFSET EC_prime_divisors
+     call WriteString
+
+     ;formatting
      call Crlf
      call Crlf
 
