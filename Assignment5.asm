@@ -39,7 +39,7 @@ HI = 999
      goodbyeS BYTE "Results certified by Riley Rice. Goodbye.",0
 
      ;array and requested size
-     request DWORD 0
+     request DWORD ?     
      array DWORD MAX DUP(?)
 
 
