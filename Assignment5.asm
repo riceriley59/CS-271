@@ -182,7 +182,7 @@ fillArray endp
 ; sortList
 ;	This function takes a size of an array passed by value and an array 
 ;    passed by reference. It then takes that array and sorts it in descending
-;    order. This is a bubble sort algorithm
+;    order. This is a bubble sort algorithm with n^2 time complexity.
 ;
 ;	Receives: size passed by value and array passed by reference
 ;	Returns:  array sorted in descending order
