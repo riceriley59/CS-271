@@ -178,8 +178,8 @@ fillArray proc
      ret 8
 fillArray endp
 
-; ***************************** SORTLIST *******************************
-; sortList
+; ***************************** SORTARRAY *******************************
+; sortArray
 ;	This function takes a size of an array passed by value and an array 
 ;    passed by reference. It then takes that array and sorts it in descending
 ;    order. This is a bubble sort algorithm with n^2 time complexity.
@@ -187,7 +187,7 @@ fillArray endp
 ;	Receives: size passed by value and array passed by reference
 ;	Returns:  array sorted in descending order
 ;**************************************************
-sortList proc
+sortArray proc
      ;set up base pointer
      push EBP
      mov EBP, ESP
@@ -234,7 +234,7 @@ sortList proc
      popad
      pop EBP
      ret 8
-sortList endp
+sortArray endp
 
 ; ***************************** DISPLAYMEDIAN *******************************
 ; displayMedian
@@ -257,9 +257,6 @@ displayMedian proc
      mov ESI, [EBP + 12]
      mov ECX, [EBP + 8]
 
-     ;clear EDX register since we will be dividing
-     mov EDX, 0
-
      ;divide size by two
      mov EAX, ECX
      mov ECX, 2
@@ -269,7 +266,7 @@ displayMedian proc
      ;if the remainder is 0 after dividing the size by two 
      ;then the array has even elements so jump to even, otherwise
      ;jump to odd
-     cmp ECX, 0
+     cmp EDX, 0
      je evenL
      jmp oddL
 
@@ -293,12 +290,13 @@ displayMedian proc
           ;now we have the two middle-most elements so I add them together
           ;and divide them by two in order to get the median which will be in EAX
           add EAX, EBX
+          inc EAX   ;add one to numerator so it will round up if the result has a .5
           mov ECX, 2
           cdq
           div ECX
 
           ;now that we have median in EAX jump to print median
-          jmp printMedian
+          jmp print
 
      ;since it's odd we just need the middle element which eax already
      ;holds the index to
@@ -310,7 +308,7 @@ displayMedian proc
           mov EBX, [ESI + EAX]
           mov EAX, EBX
 
-     printMedian:
+     print:
           ;print out median prompt and then the median which is in EAX
           call Crlf
           mov EDX, OFFSET medianPrompt
@@ -455,7 +453,7 @@ main proc
           ;pass array and size to sort the list in descending order
           push OFFSET array
           push request
-          call sortList
+          call sortArray
 
      displayMedianL:
           ;pass array and size to calculate and print out the median
